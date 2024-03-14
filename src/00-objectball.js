@@ -144,7 +144,7 @@ const shoeSize = (name) => {
     }
 }
 
-console.log(shoeSize("Ben Gordon"));
+console.log(shoeSize());
 
 const teamColors = (teamName) => {
     let obj = gameObject();
@@ -198,4 +198,26 @@ const playerStats = (name) => {
 }
 
 console.log(playerStats("Ben Gordon"));
+
+function bigShoeRebounds() {
+    let obj = gameObject();
+    let player = "";
+    let shoeSize = 0;
+    let rebounds = 0;
+    for (let player in obj.home.players) {
+        if (obj.home.players[player].shoe > shoeSize) {
+            shoeSize = obj.home.players[player].shoe;
+            rebounds = obj.home.players[player].rebounds;
+        }
+    }
+    for (let player in obj.away.players) {
+        if (obj.away.players[player].shoe > shoeSize) {
+            shoeSize = obj.away.players[player].shoe;
+            rebounds = obj.away.players[player].rebounds;
+        }
+    }
+    return rebounds;
+}
+
+console.log(bigShoeRebounds());
 
